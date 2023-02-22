@@ -72,6 +72,4 @@ article, div{ padding: 5px;}
 STYLES.CSS
 ```
 
-<br>
-
 ## To find the code examples,  have fun.
