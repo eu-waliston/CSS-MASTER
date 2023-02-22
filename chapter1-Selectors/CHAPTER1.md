@@ -65,4 +65,4 @@ article, div{ padding: 5px;}
 <br>
 <br>
 
-<h2> 💻 Well, now that you know whats is as selector and how many types exits, go to <a hrref="https://github.com/wal-wizard/CSS-MASTER/blob/main/chapter1-Selectors/style.css">Styles.css</a>  to find the code examples,  have fun.</h2>
+#### 💻 Well, now that you know whats is as selector and how many types exits, go to [Styles.css]("https://github.com/wal-wizard/CSS-MASTER/blob/main/chapter1-Selectors/style.css") to find the code examples,  have fun.
