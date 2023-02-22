@@ -48,11 +48,21 @@
 
 ### Selector can be grouped int what's known as a <em>selector list</em> by separating them with a comma. selector lists apply styles to elements that match any of the selectors in the list for example:
 
-```article, div{ padding: 5px;}``` 
+```
+article, div{ padding: 5px;}
+``` 
 
 ### add 20 pixels of padding to both elements.
 
+<br>
+
+## Conclusion:
+
 ### Knowing what kind of selectors you're working with will help you gasp one of the more confusing aspects of CSS ```specificity ``` keeping specificity low increases the reusability of your CSS rules. 
 
-## A selector such ``` #menu > .pop-open ``` means that you can use the ``` .pop-open ``` pattern when it's a direct descendent of ``` #menu ``` , even if there are similar interactions elsewhere in your ptoject.
+### A selector such ``` #menu > .pop-open ``` means that you can use the ``` .pop-open ``` pattern when it's a direct descendent of ``` #menu ``` , even if there are similar interactions elsewhere in your ptoject.
 
+<br>
+<br>
+
+## 💻 Well, now that you know whats is as selector and how many types exits, go to <a hrref="./style.css">Styles.css</a>  to find the code examples,  have fun.
