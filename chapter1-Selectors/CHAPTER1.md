@@ -65,11 +65,13 @@ article, div{ padding: 5px;}
 <br>
 <br>
 
-# 💻 Well, now that you know whats is as selector and how many types exits, go to 
+## 💻 Well, now that you know whats is as selector and how many types exits, go to 
 <br>
 
-[Styles.css]("https://github.com/wal-wizard/CSS-MASTER/blob/main/chapter1-Selectors/style.css") 
+```
+STYLES.CSS
+```
 
 <br>
 
-## to find the code examples,  have fun.
+## To find the code examples,  have fun.
