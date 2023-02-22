@@ -1,0 +1,183 @@
+/*
+ The Descendant Combinator
+*/
+form h1 {
+    color: hsl(231, 48%, 48%);
+}
+
+
+/*
+
+form p {
+    font-size: 36px;
+    color: #c2185b;
+}
+*/
+
+/*
+check your page, we have a problem right ?
+we change the colors of all P,
+but we dont want do it it
+wel, we can fix this  with: 
+
+The Child Combinator :
+*/
+
+form>p {
+    font-size: 36px;
+    color: #c2185b;
+}
+
+/*
+The Adjacent Sibling Combinator
+
+With the adjacent combinator (+)
+we can sekect elements that follow each 
+other and have the same parent 
+*/
+
+label+input {
+    display: block;
+    clear: both;
+}
+
+/*
+Sometimes u'll find some elements that don't
+are adjaccent siblings
+to match elemenst that aren't adjaccent
+we can use the univesal sibling combinator 
+(*)
+
+
+Let’s look at another example that combines the universal selector ( * ) with a
+type selector:
+*/
+*+fieldset {
+    margin: 3em 0;
+}
+
+/*
+The General Combinator 
+
+With the general combinator (~) we can select elements 
+that share the same parent without considerinf 
+where they're adjacent 
+*/
+
+label~input {
+    display: block;
+}
+
+/*
+Attribute Selectors
+
+Introduced with the LEVEL 2 SEPECIFICATION.
+attributes slectors make it possible to style
+elements based on the presence of an attribute
+such as [controls] for medeia player or [disabled]
+for a form field
+
+*/
+
+[type=submit] {
+    background: seagreen;
+    border: 0;
+    border-radius: 1000px;
+    color: #fff;
+    font-size: 18pt;
+    padding: 10px 20px;
+}
+
+/*
+📒 Note About Quotes
+
+Quoting the value of attribute sekectors is optional is most cases.
+Both [type=checkbox] and [type="checkbox"]  are valid and
+well-supported syntaxes for attribute selectors.
+Use quotes when the attribute's value 
+contains spaces or ponctuations characters such as:
+
+[class="piechart animated"]
+[data-action="modal:close"]
+[id="action-2.2"]
+*/
+
+
+/*
+ Matching Space-separated Attribute Values
+
+ This pattern willmatch the elements that have separeted 
+ spaces like:
+
+ [rel="external friend"]
+ [rel="external acquaintance"]
+ [rel="external college"]
+
+ to solve it, we can use: 
+ [att ~= val] for example: 
+
+*/
+[rel~=friend] {
+    font-size: 2em;
+    background: #eee;
+    padding: 4px;
+    text-decoration: none;
+    border-bottom: 2px solid #ccc;
+}
+
+[rel~=friend]:link,
+[rel~=friend]:visited {
+    color: #34444C;
+}
+
+[rel~=friend]:hover {
+    background: #ffeb3b;
+    border-color: #ffc107;
+}
+
+/*
+Matching Hyphenated Attribute Values
+
+One of the more interesting tasks we can do with attributes selectros 
+is to use [attr | =val]
+to match the first part of an attribute value before
+the firt hyphen
+for example:
+
+[lang=FR]
+
+*/
+
+[lang |="fr"] {
+    font-style: italic;
+}
+
+[lang |="fr"] q:before {
+    content: '\00AB';
+}
+
+[lang |="fr"] q:after {
+    content: '\00BB';
+}
+
+/*
+This selectros isn't limited to language codes.
+we can use it with any hyphenated attributes value
+here: 
+*/
+[class |="promo"] {
+    border-top: 5px solid #4caf50;
+    color: #555;
+    line-height:1.3;
+    padding: .5em;
+}
+
+[class |="promo"] h3{
+    color:#000;
+    font-size: 1.2;
+    margin: 0;
+}
+
+[class |="promo"] p{
+    margin: 0 0 1em;
+}
