@@ -1,0 +1,69 @@
+/*
+ The Descendant Combinator
+*/
+form h1 {
+    color: hsl(231, 48%, 48%);
+}
+
+
+/*
+
+form p {
+    font-size: 36px;
+    color: #c2185b;
+}
+*/
+
+/*
+check your page, we have a problem right ?
+we change the colors of all P,
+but we dont want do it it
+wel, we can fix this  with: 
+
+The Child Combinator :
+*/
+
+form>p {
+    font-size: 36px;
+    color: #c2185b;
+}
+
+/*
+The Adjacent Sibling Combinator
+
+With the adjacent combinator (+)
+we can sekect elements that follow each 
+other and have the same parent 
+*/
+
+label+input {
+    display: block;
+    clear: both;
+}
+
+/*
+Sometimes u'll find some elements that don't
+are adjaccent siblings
+to match elemenst that aren't adjaccent
+we can use the univesal sibling combinator 
+(*)
+
+
+Let’s look at another example that combines the universal selector ( * ) with a
+type selector:
+*/
+*+fieldset {
+    margin: 3em 0;
+}
+
+/*
+The General Combinator 
+
+With the general combinator (~) we can select elements 
+that share the same parent without considerinf 
+where they're adjacent 
+*/
+
+label~input {
+    display: block;
+}
