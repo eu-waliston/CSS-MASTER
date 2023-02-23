@@ -1,0 +1,133 @@
+/*
+Pseudo Elements
+
+the CSS pseudo-elements Model LVL 4
+specifications clarifies beavior for existing 
+pseudo-elements 
+and defines several ones.
+we'll focus on the ones that 
+currently have browser suport:
+
+::after -> inserts additional generated conent after 
+the content of an element
+
+::first-letter -> selects the first lettr of an element
+
+::first-line -> selects the firts line of an element
+
+::marker -> styles bullets and numbers for list
+items and the <sumary> element
+
+::placeholder -> used to style an placeholder attribute
+
+::selection -> styled text selected by the cursor
+
+All this properties less ::before and ::after
+affect content that's part of the document tree.
+
+::before and ::after inject content int a document.
+*/
+
+
+.helptext::before,
+.helptext::after {
+    color: hsl(340, 82%, 52%);
+}
+
+.helptext::before {
+    content: '(';
+}
+
+.helptext::after {
+    content: ')';
+}
+
+
+h2 {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 3rem;
+}
+
+h2::before,
+h2::after {
+    content: '\00a0';
+    background: url(image.png) repeat-x center / 50% auto;
+}
+
+/* Creating Typographic Effects with ::first-letter */
+
+p::first-letter {
+    font: normal 2rem / 1 'Alfa Slab One', serif;
+    color: hsl(291, 64%, 30%);
+    display: inline-block;
+    padding-right: .25rem;
+}
+
+/* Creating Typographic Effects with ::first-line */
+p::first-line {
+    font: bold 1.5em serif;
+    font-style: italic;
+    color: #9016d6;
+}
+
+/*
+Not all properties are compatible with ::first-line . Only the following are
+supported:
+
+    background and the background- prefixed properties color
+    font and the font- prefixed group of properties
+    letter-spacing
+    line-height
+    opacity
+    text-decoration , including expanded properties such as text-
+    decoration-line
+    text-transform
+    text-shadow
+    word-spacing
+    vertical-align
+*/
+
+
+/*
+ User Interface Fun with -> ::selection
+
+ Not every CSS property can be used with ::selection . Only a few
+ properties are permitted by the specification:
+
+    color
+    background-color
+    text-decoration , and
+    style
+    text-shadow
+    stroke-color
+    fill-color
+    stroke-width
+*/
+
+#password ::selection {
+    background-color: #9016d6;
+    color: antiquewhite;
+    border: none;
+}
+
+/*
+Custom List and Summary Icons with ::marker
+*/
+
+ol ::marker {
+    content: '❌';
+}
+
+ol ::before {
+    content: '\00a0';
+    display: inline-block;
+    padding: 0 10px;
+}
+
+/* Styling Input ::placeholder Values */
+
+input::placeholder {
+    color: rgba(0,0, 100, 1);
+    font-weight: bold;
+}

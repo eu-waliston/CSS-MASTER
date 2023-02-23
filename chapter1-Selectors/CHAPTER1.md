@@ -61,7 +61,7 @@ article, div{ padding: 5px;}
 ### A selector such ``` #menu > .pop-open ``` means that you can use the ``` .pop-open ``` pattern when it's a direct descendent of ``` #menu ``` , even if there are similar interactions elsewhere in your ptoject.
 
 ### You can find all examples in:
-    - Attrbutes and Combinators Folder
+    Attrbutes and Combinators Folder
 <br>
 
 # Pseudo-Classes and Pseudo-Elements
@@ -114,4 +114,4 @@ p:not(.error)
 ```
 
 ### You can find all examples in the:
-- Pseudo-Clases e Pseudo-Elements Folders
+    Pseudo-Clases e Pseudo-Elements Folder
