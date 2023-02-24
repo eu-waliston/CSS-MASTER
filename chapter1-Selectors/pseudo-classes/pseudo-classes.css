@@ -1,0 +1,136 @@
+/*
+Styling the :root of a document
+
+One pseudo-class often see in CSS snipets and demos,
+is the :root pseudo-class, this class matches the 
+root element of the document.
+
+if you need t odefine a set of custom properties (varaibles)
+for a stylesheet that will be shared across HTML
+this is your guy.
+
+for example in a color pallete:
+*/
+
+:root {
+    ---color-primary: #0eb1b1f3;
+    ---color-secondary: #087474;
+    ---color-tertiary: #074d40;
+}
+
+/*
+Highlighting Page Fragments with :target
+
+You can use any combination of CSS with :target , but be cautious about
+using properties that can show or hide content.
+*/
+
+.comment :target {
+    background: #ffeb3b;
+    border-color: #ffc107; 
+}
+
+
+/*
+Styling Elements That Have No Children Using :empty
+
+Sometimes WYSIWYG(what you see is what you get) editors add empty <p> elements toyour content.
+these empty elements affect your document layout 
+if your stylesheet also uses p as type selector
+your can exclude this elements with the :empty pseudo-class: 
+*/
+
+p:empty {
+    display: none;
+}
+
+/*
+Concise and Resilient Selectors with :is()
+
+this :is() pseudo-class is one of three logical 
+pseudo-classes available in CSS
+this other two being -> :not() and :where()
+
+you can use :is to create more consice and resilient selectors. It's a functional pseudo-class that accepts a selector list as its arguments. Here's an example:
+*/
+
+article :is(h1,h2,h3) {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic 45deg;
+}
+
+/*
+Negating Selector with :not()
+
+The :not() pseudo-class is opposite if :is().
+it returns all elemnts EXCEPT those mathces the selector
+argument for example:
+
+:not(.message) -> matches every <p> element that 
+DOESN'T have a class of message.
+*/
+
+label:not(  .label-radio) {
+    font-weight: bold;
+    display: block;
+}
+
+/*
+Adjusting Selector Specificity with :where()
+
+Again, using :where() doesn’t modify the specificity value of a selector. In
+fact, its specificity value is zero. Instead, think of it as a way to clarify your
+intent.
+*/
+
+
+/*
+Selecting Elements by Their Index
+
+CSS also provides selectors for matching elements based on their position in
+the document subtree. These are known as child–indexed pseudo-classes,
+because they rely on the position or order of the element rather than its type,
+attributes, or ID. There are five:
+
+:first-child
+:last-child
+:only-child
+:nth-child()
+:nth-last-child()
+
+*/
+
+
+/*
+:first-child
+and
+:last-child
+
+As you’ve probably guessed from the names, the :first-child and :last-
+child pseudo-classes make it possible to select elements that are the first
+child or last child of a node (element)
+*/
+
+body {
+    font: 16px / 1.5 sans-serif;
+}
+
+li:first-child {
+    color: #e91e63;
+}
+
+li:last-child {
+    color: #4caf50;
+}
+
+/*
+:nth-child()
+and
+:nth-last-child()
+
+Both :nth-child() and :nth-last-child() are useful for alternating
+patterns. Creating zebra-striped table row colors is a perfect use case.
+*/
+
+
+
