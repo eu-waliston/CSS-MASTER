@@ -27,7 +27,7 @@ using properties that can show or hide content.
 
 .comment :target {
     background: #ffeb3b;
-    border-color: #ffc107; 
+    border-color: #ffc107;
 }
 
 
@@ -54,7 +54,7 @@ this other two being -> :not() and :where()
 you can use :is to create more consice and resilient selectors. It's a functional pseudo-class that accepts a selector list as its arguments. Here's an example:
 */
 
-article :is(h1,h2,h3) {
+article :is(h1, h2, h3) {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic 45deg;
 }
@@ -70,7 +70,7 @@ argument for example:
 DOESN'T have a class of message.
 */
 
-label:not(  .label-radio) {
+label:not(.label-radio) {
     font-weight: bold;
     display: block;
 }
@@ -130,7 +130,247 @@ and
 
 Both :nth-child() and :nth-last-child() are useful for alternating
 patterns. Creating zebra-striped table row colors is a perfect use case.
+
+The difference between :nth-child() and :nth-last-child()
+is the stating point.
+
+:nth-child( ) counts forward 
+:nth-last-child() counts backward
+CSS indexes use counting numbers and start one rather than zero.
+*/
+
+tr:nth-child(even) {
+    background: rgba(96, 125, 139, 0.1);
+}
+
+.item:nth-child(3n+5) {
+    background: #e91e63;
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+/*
+Selecting Elements of a Particular Type by Their Index
+
+In this section, we’ll discuss typed child-indexed pseudo-classes. These
+pseudo-classes also match elements based on the value of their indexes, but
+matches are limited to elements of a particular type or tag name
+
+
+There are five such pseudo-classes with names that mirror those of their
+untyped counterparts:
+
+:first-of-type
+:last-of-type
+:only-of-type
+:nth-of-type()
+:nth-last-of-type()
+
 */
 
 
+/*
+Using :first-of-type ,
+:last-of-type ,
+and :only-type
 
+With :first-of-type we can select the first element that matches a selector.
+
+How about we give out first p element a lime-green background
+*/
+
+p:first-of-type {
+    background: #cddc39;
+}
+
+/*
+The :last-of-type psudo-class works similary, matching 
+last such element of its parent
+*/
+
+p:last-of-type {
+    background: #e91e63;
+}
+
+
+/*
+However, :only-of-type Will match an element if it's the only child elemnt of that type its parent. 
+*/
+
+p:only-of-type {
+    background: #087474;
+}
+
+p:first-of-type::first-letter {
+    font: bold italic 3em / .5 serif;
+    color: #3f51b5;
+    text-transform: uppercase;
+}
+
+/*
+Using :nth-of-type() and :nth-last-of-type()
+
+Like :first-of-type and :last-of-type , the indexes
+resolve to elements of the same type. For example, to select every odd-
+numbered <p> element, we can use the odd keyword with :nth-of-type() :
+
+*/
+
+p:nth-last-of-type(odd) {
+    background: #cdcc39;
+    color: #121212;
+}
+
+/*
+Similarly, using :nth-last-of-type(even) selects even-numbered <p>
+elements, but the count begins from the last <p> element in the document—in
+this case, item 9.
+*/
+p:nth-last-of-type(even) {
+    background: #3954cd;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+/*
+Using *-of-type Pseudo-classes with Non-element Selectors
+
+*/
+
+/* p:nth-of-type(1 of .item) {
+    background: magenta; 👀
+} */
+
+
+/*
+Styling Form Fields Based on Input
+
+:enabled
+and 
+:disabled
+
+As their name suggests, these pseudo-classes match elements that have (or
+lack) the HTML5 disabled attribute. This can be elements such as <input> ,
+<select> , <button> or <fieldset> :
+
+*/
+
+button:disabled {
+    opacity: .5;
+}
+
+/*
+:required
+and 
+:optional
+
+*/
+
+input:required {
+    border: 1px solid #ffc107;
+}
+
+/*
+The :optional class works similarly, by matching elements that don’t have a
+required attribute. For example, take the following CSS:
+*/
+
+
+/*
+:checked
+*/
+
+[type=radio]:checked+label {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+[type=radio] {
+
+    /* appearance: none removes default browser styles for radio
+    buttons
+    and other elements. Safari supports this property with a
+    -webkit-
+    prefix. */
+
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+[type=radio]+label::before {
+    background: #fff;
+    content: '';
+    display: inline-block;
+    border: 1px solid #444;
+    border-radius: 1000px;
+    height: 1.2rem;
+    margin-right: 1em;
+    vertical-align: middle;
+    width: 1.2rem;
+}
+
+[type=radio]:checked+label::before {
+    background: #4caf50;
+}
+
+/*
+:indeterminate
+
+The :indeterminate pseudo-class lets you set styles for elements that are in
+an indeterminate state
+*/
+
+progress {
+    background: #ccc;
+    box-shadow: 0 0 8px 8 #000a;
+    border-radius: 1000rem;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+progress:indeterminate::-moz-progress-bar {
+    background: repeating-linear-gradient(-45deg, #999,
+            1rem, #eee 1rem, #eee 2rem);
+}
+
+/* WebKit and Blink progress bars */
+progress:indeterminate::-webkit-progress-bar {
+    background: repeating-linear-gradient(-45deg, #999,
+            1rem, #eee 1rem, #eee 2rem);
+}
+
+/* Perhaps someday we'll be able to do this */
+progress:indeterminate {
+    background: repeating-linear-gradient(-45deg, #999,
+            1rem, #eee 1rem, #eee 2rem);
+}
+
+/*
+
+:in-range
+and :out-of-range
+The :in-range and :out-of-range pseudo-classes can be used with range,
+number, and date input form controls. Using :in-range and :out-of-range
+requires setting min and/or max attribute values for the control.
+
+*/
+
+:out-of-range {
+    background: #ffeb3b;
+}
+:in-range {
+    background: #a30909;
+}
+
+/*
+:valid and :invalid
+
+With the :valid and :invalid pseudo-classes, we can set styles based on
+whether or not the form input meets our requirements. This will depend on the
+validation constraints imposed by the type or pattern attribute value
+*/
